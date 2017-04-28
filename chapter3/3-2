@@ -1,0 +1,24 @@
+How would you design a stack which, in addition to push and pop, also has a function
+min which returns the minimum element? Push, pop and min should all operate in
+O(1) time
+
+class Stack
+
+  def initialize
+    @min_stack = []
+    @stack = []
+
+  end
+
+  def push(el)
+    @stack.push(el)
+    @min_stack.push(el) if @min_stack.nil? || @min_stack[-1] > el
+  end
+
+  def pop
+    el = @stack.pop()
+    @min_stack.pop() if el == @min_stack[-1]
+    el
+  end
+
+end
