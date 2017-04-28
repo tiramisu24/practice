@@ -1,0 +1,34 @@
+You have two numbers represented by a linked list, where each node contains a single
+digit. The digits are stored in reverse order, such that the 1’s digit is at the head of
+the list. Write a function that adds the two numbers and returns the sum as a linked
+list.
+EXAMPLE
+Input: (3 -> 1 -> 5) + (5 -> 9 -> 2)
+Output: 8 -> 0 -> 8
+
+def add (list1, list2)
+  list3 = List.new()
+
+  node1 = list1.head
+  node2 = list2.head
+  node3 = list3.head
+  rem = 0
+  until node1.next.nil?
+    sum = node1.val + node2.val + rem
+    rem = (sum >9) ? 1 : 0
+    node3.val = sum % 10
+
+    node1 = node1.next
+    node2 = node2.next
+    node3.next = Node.new()
+    node3 = node3.next
+  end
+
+  if rem
+    node3.next = Node.new()
+    node3.next.val = rem
+
+  end
+
+  list3
+end
