@@ -1,0 +1,5 @@
+ Describe how you could use a single array to implement three stacks.
+
+[[stack1], [stack2], [stack3]]
+
+or keep track of start and end and resize array as needed
