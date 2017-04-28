@@ -13,6 +13,16 @@ end
 
 #inplace quicksort
 #iterate return false if two letters next to each other is same
+def isUnique2(str)
+  str2 = my_sort(str)
+  idx =0
+  while idx < str2.length() -1
+    idx2 = idx + 1
+    return false if str2[idx] == str2[idx2]
+    idx +=1
+  end
+  true
+end
 
 java
 public boolean isUnique(String str){
