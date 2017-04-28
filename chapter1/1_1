@@ -1,0 +1,20 @@
+Implement an algorithm to determine if a string has all unique characters. What if you can not use additional data structures?
+
+ruby
+def isUnique(str)
+  set = Set.new()
+  arr = str.split("")
+  arr.each do |char|
+    return false if set.include?(char)
+    set.add(char)
+  end
+  true
+end
+
+#inplace quicksort
+#iterate return false if two letters next to each other is same
+
+java
+public boolean isUnique(String str){
+  
+}
