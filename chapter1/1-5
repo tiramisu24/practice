@@ -1,0 +1,13 @@
+Write a method to replace all spaces in a string with ‘%20’
+
+def replace(str)
+  new_str = ""
+  str.each do |char|
+    if char ==" "
+      new_str += '%20'
+    else
+      new_str += char
+    end
+  end
+  new_str
+end
