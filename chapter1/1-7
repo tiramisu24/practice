@@ -1,0 +1,27 @@
+Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+column is set to 0.
+
+def zeros(matrix)
+  rows = Set.new()
+  cols = Set.new()
+
+  matrix.each_with_index do |row, i|
+    row.each_with_index do |spot, j|
+        if spot == 0
+          rows.add(i)
+          cols.add(j)
+        end
+    end
+  end
+
+  matrix.each_with_index do |row, i|
+    row.each_with_index do |spot, j|
+        if rows.include?(i) || cols.include?(j)
+          spot = 0
+        end
+    end
+  end
+
+  matrix
+
+end
