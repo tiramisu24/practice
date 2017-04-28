@@ -1,0 +1,16 @@
+ Implement an algorithm to fnd the nth to last element of a singly linked list.
+
+def find(n, list)
+  start = list.head
+  endNode = list.head
+  n.times do
+    endNode = endNode.next
+  end
+
+  until endNode.next.nil?
+    start = start.next
+    endNode = endNode.next
+  end
+
+  start
+end
