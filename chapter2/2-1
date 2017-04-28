@@ -1,0 +1,20 @@
+Write code to remove duplicates from an unsorted linked list.
+FOLLOW UP
+How would you solve this problem if a temporary buffer is not allowed?
+
+def remove_dup(list)
+  curNode = list.head
+  set = Set.new()
+  set.add curNode.value
+
+  until curNode.next.nil?
+    if set.include?(curNode.value)
+      curNode.prev.next = curNode.next
+      curNode.next.prev = curNode.prev
+    end
+
+    curNode = curNode.next
+  end
+
+  list
+end
