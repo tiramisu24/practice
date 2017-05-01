@@ -8,10 +8,9 @@ def Stack
   end
 
 
-  def push
-    @stack.push()
+  def push(val)
+    @stack.push(val)
   end
-
 
   def pop
     @stack.pop()
@@ -24,6 +23,33 @@ def Stack
   def isEmpty
     @stack.empty?
   end
+
+  def sort
+    index_stack = sorted_stack
+    sorted_stack.each_with_idx do |num, idx|
+      num.times do
+        @stack.push(idx)
+      end
+    end
+
+    @stack
+  end
+
+  def sorted_stack
+    sorted_stack = []
+    until isEmpty
+      val = pop()
+      last_val = sorted_stack.length() -1
+      if sorted_stack.empty?
+        sorted_stack.concat(Array.new(val+1))
+      elsif val > last_val
+        sorted_stack.concat(Array.new(val-last_val +1))
+      end
+      sorted_stack[val] +=1
+    end
+    sorted_stack
+  end
+
 
 
 
