@@ -1,0 +1,19 @@
+Given a directed graph, design an algorithm to fnd out whether there is a route between
+two nodes.
+
+def route (node1, node2)
+  queue = []
+  queue.push(node1)
+  set = Set.new()
+  until queue.empty?
+    node = queue.dequeue
+    if node == node2
+      return true
+    end
+    unless set.include?(node)
+      queue.concat(node.children)
+    end
+
+  end
+  false
+end
