@@ -1,0 +1,15 @@
+Implement a function to check if a tree is balanced. For the purposes of this question,
+a balanced tree is defned to be a tree such that no two leaf nodes difer in distance
+from the root by more than one.
+
+#find heights of leaf nodes
+#see if difference is bigger than 1
+def isBalanced (node, height)
+  return 0 if node == @root
+  return [0] if node.nil?
+
+  heights = []
+  left = isBalanced(node.left)[0] + 1
+  height.push()
+
+end
