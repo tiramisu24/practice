@@ -1,0 +1,25 @@
+Given a sorted (increasing order) array, write an algorithm to create a binary tree with
+minimal height.
+
+def create(arr)
+  queue = []
+  root = Node.new(arr[0])
+  queue.push(root)
+
+  idx =1
+  while idx < arr.length() -1
+    node = queue.dequeue
+
+    new_node1 = Node.new(arr[idx])
+    new_node2 = Node.new(arr[idx +1]) if idx+1 < arr.length()-1
+    node.left = new_node1
+    node.right = new_node2
+    queue.push(new_node1)
+    queue.push(new_node2)
+    idx +=2
+  end
+
+  root
+
+
+end
