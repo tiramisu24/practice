@@ -6,10 +6,18 @@ from the root by more than one.
 #see if difference is bigger than 1
 def isBalanced (node, height)
   return 0 if node == @root
-  return [0] if node.nil?
+  return height if node.nil?
 
   heights = []
-  left = isBalanced(node.left)[0] + 1
-  height.push()
+  if node.left?
+    heights.push(isBalanced(node.left, height + 1))
+  end
+  if node.right?
 
+    heights.push(isBalanced(node.right, height + 1))
+  end
+
+  min = heights.min
+  max = height.max
+  ((max-min).abs <=1 ) ? true : false
 end
