@@ -1,0 +1,40 @@
+Given a binary search tree, design an algorithm which creates a linked list of all the
+nodes at each depth (i.e., if you have a tree with depth D, you’ll have D linked lists).
+
+
+def list(root)
+  arr = make_list(root)
+  lists = []
+  n = 1
+  idx  = 0
+  curList = LinkedList.new()
+  while idx < arr.length
+
+    if idx == n
+      lists.push(curList)
+      curList = LinkedList.new()
+      n *=2
+    else
+      curList.add(Node.new(arr[idx]))
+    end
+
+    idx +=1
+  end
+
+  lists
+end
+
+def make_list (root)
+  arr = []
+  queue = [root]
+  until node.nil
+    node = queue.shift
+    arr.push(node.left)
+    arr.push(node.right)
+    queue.push(node.left)
+    queue.push(node.right)
+
+  end
+  arr
+
+end
