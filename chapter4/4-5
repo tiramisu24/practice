@@ -1,0 +1,17 @@
+Write an algorithm to fnd the ‘next’ node (i.e., in-order successor) of a given node in
+a binary search tree where each node has a link to its parent.
+
+
+def next (tree, node)
+  idx = 0
+  tree.each_with_index do |n, i|
+    idx = i if n == node
+  end
+
+  if(tree[n].parent == tree[n+1].parent)
+    return tree[n+1]
+  elsif (tree[n-1].parent.nil? || tree[n].parent == tree[n-1].parent)
+    return tree[2(n-1)]
+  end
+
+end
