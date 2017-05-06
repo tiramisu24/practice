@@ -30,5 +30,4 @@ def height (node)
     node = node.parent
   end
   h
-
 end
