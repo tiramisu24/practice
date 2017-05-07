@@ -1,0 +1,36 @@
+You are given a binary tree in which each node contains a value. Design an algorithm
+to print all paths which sum up to that value. Note that it can be any path in the tree
+- it does not have to start at the root
+
+def sum (root, val)
+  queue = [root]
+  paths = []
+  until queue.empty?
+    node = queue.unshift
+    paths.concat(get_paths(node,val))
+  end
+
+end
+
+def get_paths (node, val, cur_path = [], sum = 0)
+  paths =[]
+  return nil if node.nil? || node.val + sum > val
+  cur_path.push(node)
+  if node.val + sum == val
+    return cur_path
+  elsif node.val + sum < val
+    next_left = sum(node.left, cur_path, node.val + sum)
+    if next_left
+      cur_path_L = cur_path.concat(next_left)
+    end
+    next_right = sum(node.right, cur_path, node.val + sum)
+    if next_right
+      cur_path_R = cur_path.concat(next_right)
+    end
+  end
+
+  paths.concat([cur_path_L])
+  paths.concat([cur_path_R])
+
+
+end
