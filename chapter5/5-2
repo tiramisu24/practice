@@ -1,0 +1,33 @@
+Given a (decimal - e.g. 3.72) number that is passed in as a string, print the binary representation.
+If the number can not be represented accurately in binary, print “ERROR”
+
+def to_binary (num)
+  num = num.split(".")
+  num_dig = binary_int(num[0].to_i)
+  num_dec = binary_dec(num[1].to_f) if num[1]
+
+  num.dig.concat(".").concat(num_dec)
+end
+
+def binary_int (num)
+  bin = []
+  until num == 0
+    bin.push(num%2)
+    num = num /2
+  end
+  bin.reverse.join("")
+end
+
+def binary_dec (rem)
+  #check if divisible??
+  bin =[]
+  count = 1
+  until rem ==0 or count >=10
+    bin.push(rem% (2^(-count)))
+    rem -= rem% (2^(-count))
+    count +=1
+  end
+
+  bin.join("")
+
+end
