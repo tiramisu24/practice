@@ -1,0 +1,12 @@
+ You have a five quart jug and a three quart jug, and an unlimited supply of water
+(but no measuring cups). How would you come up with exactly four quarts of water?
+NOTE: The jugs are oddly shaped, such that flling up exactly ‘half’ of the jug would
+be impossible
+
+fill 5qt
+poor until 3qt is full
+empty 3qt
+pour remaining 2 into 3qt
+fill 5qt
+fill 3qt until full
+4 left
