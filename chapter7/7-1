@@ -1,0 +1,47 @@
+Design the data structures for a generic deck of cards. Explain how you would subclass
+it to implement particular card games.
+
+class Card
+  attr_accesor :face, :color
+  def initialize (face=nil, color = nil)
+    @face = face
+    @color = color
+  end
+end
+
+
+class Deck
+  FACE = {
+    A: 1,
+    2 : 2,
+    ...
+    face :value
+  }
+  suit ={
+  heart : heart
+  suit : suit
+  }
+
+  def hand
+    #logic of what each hand of game looks like
+  end
+
+
+end
+
+class Hand
+  def value
+    # if blackjack: then have a value that changes value of A
+    # sum of values
+  end
+end
+
+class Game
+  def play
+  # game logic, with checks on win
+  end
+
+  def win
+  end
+
+end
