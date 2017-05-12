@@ -1,0 +1,16 @@
+ Design the data structures for an online book reader system.
+
+class Libary
+
+  libary = {book : reader}
+
+  checkout (book,reader)
+    if libary[book]
+      return "find another one"
+    else
+      library[book] = reader
+    end
+  end
+
+
+end
