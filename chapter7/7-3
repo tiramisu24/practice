@@ -1,0 +1,16 @@
+ Design a musical juke box using object oriented principles.
+
+class Box
+def initialize (song)
+  @song = song
+  @speed = 1
+end
+
+def play
+  while turn
+    @speed = #rotaional speed of turning wheel
+    #play with speed
+  end
+end
+
+end
