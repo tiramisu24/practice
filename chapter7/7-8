@@ -1,0 +1,59 @@
+Othello is played as follows: Each Othello piece is white on one side and black on the
+other. When a piece is surrounded by its opponents on both the left and right sides,
+or both the top and bottom, it is said to be captured and its color is fipped. On your
+turn, you must capture at least one of your opponent’s pieces. The game ends when
+either user has no more valid moves, and the win is assigned to the person with the
+most pieces. Implement the object oriented design for Othello.
+
+class Board
+#board is [[]] with x as black and o as white
+
+  def play
+    until board is not emty
+      take turn
+    end
+
+    return winner
+  end
+
+  def take_turn
+
+  end
+
+  def winner
+    black_count = __
+    white_count = __ <= get numbers by looping and counting
+
+    black > white ? return black
+  end
+
+  def place_piece
+    pos = cur_player.move
+
+    #put piece here
+    #flip(pos, [-1,0])
+    #flip(pos, [1,0])
+    #flip(pos, [0,1])
+    #flip(pos, [0,-1])
+  end
+
+  def flip (pos, dir,color)
+  stack = []
+    until pos[pos + dir]color == color
+      if pos.out_of_bounds
+        stack = []
+      end
+      stack.push[pos]
+    end
+  end
+
+  stack.each do |coin|
+    coin.color = coind == "black" ? white : black
+  end
+
+end
+
+clss Player
+  def move(pos)
+  end
+end
