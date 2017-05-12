@@ -1,0 +1,52 @@
+class Employee
+  attr_reader :classification
+  def initialize (classification)
+    @classification = classification
+    @call_queue = []
+  end
+
+  def can_take (call)
+    #logic for take
+  end
+
+  def take_call (call)
+    if can_take(call)
+      @call_queue.push(call)
+      @call_queue.shift
+      return true
+    else
+      return false
+    end
+  end
+
+end
+
+def CallCenter
+
+  def initalize
+    TL
+    PM
+    list = LinkedList(employees)
+    cur_teller = list.head
+  end
+
+  def take_call(call)
+    if cur_teller.take_call(queue[pointer])
+      cur_teller = cur_teller.next
+    else
+      unless tl.take_call(call)
+        pm.take_call(call)
+      end
+    end
+  end
+
+  def add_employee (employee)
+    employee.next = cur_teller.next
+    cur_teller.next = employee.next
+  end
+
+  def remove_employee
+    use a set for fast lookup? 
+  end
+
+end
