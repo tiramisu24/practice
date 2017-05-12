@@ -1,0 +1,66 @@
+ Design a chess game using object oriented principles.
+
+class Piece
+    attr_reader :color, :type, :pos
+    def initialize (color, type, pos)
+      @type = type
+      @color = color
+      @pos = pos
+    end
+
+    def in_board?(pos)
+      #checks if coordinates of postion are inside the board
+    end
+
+end
+
+class Pawn
+  extends piece
+  Moves = # [0,-1] <= move up, has moves for up, down,right, and left
+
+  def initalize(color)
+    super(color, 'pawn', pos)
+  end
+
+  def valid_move(pos)
+  end
+
+  def move(pos)
+    @pos = pos
+  end
+
+  turn_queen?
+  end
+
+end
+
+class Board
+  #player1, player2
+  def win?
+
+  end
+
+  def take_turn
+
+  end
+
+  def move(piece)
+  end
+
+  def valid_move? (piece, new_pos)
+
+  end
+
+end
+
+class Player
+  #color, board
+  play
+    take user input
+    until board.win? || board.valid_move?(piece, new_pos)
+        # ask until get a valid move
+    end
+
+    board.move(piece, pos)
+  end
+end
