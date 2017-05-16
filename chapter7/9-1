@@ -1,0 +1,11 @@
+You are given two sorted arrays, A and B, and A has a large enough bufer at the end
+to hold B. Write a method to merge B into A in sorted order.
+____________________________________________________
+
+
+def sort (a, b)
+  #last_idx = loop until last elemnet in a
+  cur_el = a.length -1
+
+
+end
