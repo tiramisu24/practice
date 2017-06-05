@@ -1,0 +1,9 @@
+div{
+  background-color: pink;
+  border: 1px solid black;
+  float: left;
+  width: 100px;
+}
+.container{
+  background-color: wheat;
+}
