@@ -4,6 +4,8 @@ const URL = require('url-parse');
 const MAX_PAGES_TO_VISIT = 10;
 let numPagesVisited = 0
 const searchWord = "exchange";
+const url = new URL(START_URL);
+const baseUrl = url.protocol + "//" + url.hostname;
 
 let pageVisited = new Set();
 
@@ -27,6 +29,7 @@ const crawl() => {
 
 const visitPage = (url, cb) => {
   pageVisited.add(url);
+  numPagesVisited++;
 
   request(startURL, (error, response,body) => {
     if(error){
@@ -57,18 +60,16 @@ const searchForWord = (content, word) => {
 }
 
 const foundLinks = (content) => {
-  let relativeLinks = [];
-  let absoluteLinks = [];
 
   let links = content("a[href^='/']");
   links.each(function() {
-      relativeLinks.push(content(this).attr('href'));
+      pagesToVisit.push(baseUrl + content(this).attr('href'));
 
   });
 
   links =  content("a[href^='http']");
   links.each(function() {
-      absoluteLinks.push(content(this).attr('href'));
+      pagesToVisit.push(content(this).attr('href'));
   });
-  console.log(absoluteLinks);
+  console.log(pagesToVisit);
 }
