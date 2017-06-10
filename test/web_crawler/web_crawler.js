@@ -3,34 +3,35 @@ const cheerio = require('cheerio');
 const URL = require('url-parse');
 const MAX_PAGES_TO_VISIT = 10;
 let numPagesVisited = 0
-const searchWord = "exchange";
-const url = new URL(START_URL);
-const baseUrl = url.protocol + "//" + url.hostname;
+const searchWord = "statement";
 
-let pageVisited = new Set();
+
+let pagesVisited = new Set();
 
 const startURL = "https://www.cnn.com";
 const pagesToVisit = [startURL];
 
-const crawl() => {
-  console.log("Visiting page " + startURL);
+const url = new URL(startURL);
+const baseUrl = url.protocol + "//" + url.hostname;
+
+const crawl = () => {
   if(numPagesVisited > MAX_PAGES_TO_VISIT){
-    console.log("max pages visited");
     return;
   }
   const page = pagesToVisit.pop();
-  if(pageVisited.has(page)){
+  console.log("Visiting page " + page);
+
+  if(pagesVisited.has(page)){
     crawl();
   }else{
-    visitPage(page, crawl());
+    visitPage(page, crawl);
   }
 }
 
 
 const visitPage = (url, cb) => {
-  pageVisited.add(url);
   numPagesVisited++;
-
+  pagesVisited.add(url);
   request(startURL, (error, response,body) => {
     if(error){
       console.log("Error: " + error );
@@ -71,5 +72,6 @@ const foundLinks = (content) => {
   links.each(function() {
       pagesToVisit.push(content(this).attr('href'));
   });
-  console.log(pagesToVisit);
 }
+
+crawl();
