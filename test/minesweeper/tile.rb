@@ -32,7 +32,7 @@ class Tile
     @is_explored
   end
 
-  def set_bom
+  def set_bomb
     @is_bomb = true
   end
 

@@ -9,20 +9,19 @@ class Board
     board = Array.new(size) {Array.new(size)}
     board.each_with_index do |row, i|
       row.each_with_index do |box, j|
-        box = Tile.new([i,j],self)
+        board[i][j] = Tile.new([i,j],self)
       end
     end
 
     i = 0
     while(i<num_bombs) do
-      x = rand(0..size)
-      y = rand(0..size)
+      x = rand(0...size)
+      y = rand(0...size)
       if !board[x][y].is_bomb
-        board[x][x].set_bomb
-        i +=1 
+        board[x][y].set_bomb
+        i +=1
       end
     end
-
     board
   end
 
