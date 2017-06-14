@@ -26,6 +26,13 @@ class Board
     board
   end
 
+  def length
+    @board.length
+  end
+
+  def getTile(x,y)
+    @board[x][y]
+  end
   def flag_tile(pos)
     tile = @board[pos[0]][pos[1]]
     tile.flag
