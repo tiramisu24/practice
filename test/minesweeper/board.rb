@@ -25,8 +25,24 @@ class Board
     board
   end
 
-  def render
+  def flag_tile(pos)
+    tile = @board[pos[0]][pos[1]]
+    tile.flag
+    render
+  end
 
+  def flip_tile(pos)
+    tile = @board[pos[0]][pos[1]]
+    tile.explore
+    render
+    tile.is_bomb ? true : false
+  end
+
+  def won
+    @board.flatten.all?{|tile| tile.is_bomb != tile.is_explored}
+  end
+  
+  def render
     @board.each do |row|
       row.each do |tile|
         print tile.render
