@@ -3,6 +3,7 @@ class Board
 
   def initialize(size = 3, num_bombs = 2)
     @board = create_board(size, num_bombs)
+    render
   end
 
   def create_board(size, num_bombs)
@@ -41,7 +42,7 @@ class Board
   def won
     @board.flatten.all?{|tile| tile.is_bomb != tile.is_explored}
   end
-  
+
   def render
     @board.each do |row|
       row.each do |tile|
