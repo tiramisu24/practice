@@ -24,6 +24,14 @@ class Tile
     @is_bomb
   end
 
+  def is_flag
+    @is_flagged
+  end
+
+  def is_explored
+    @is_explored
+  end
+
   def set_bom
     @is_bomb = true
   end
@@ -39,7 +47,7 @@ class Tile
   def adjacent_bomb_count
     count = 0
     dirs.each do |dir|
-      new_pos = pos + dir 
+      new_pos = pos + dir
       if board[new_pos[0]][new_pos[1]].is_bomb
         count +=1
       end
@@ -48,9 +56,9 @@ class Tile
   end
 
   def render
-    if flag
+    if is_flag
       "F"
-    elsif explore
+    elsif is_explore
       adjacent_bomb_count == 0 ? "_" : adjacent_bomb_count.to_s
     else
       "*"
