@@ -25,4 +25,14 @@ class Board
     board
   end
 
+  def render
+
+    @board.each do |row|
+      row.each do |tile|
+        print tile.render
+      end
+      print "\n"
+    end
+  end
+
 end
