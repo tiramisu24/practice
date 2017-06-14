@@ -1,6 +1,6 @@
 require_relative 'tile'
 class Board
-
+  attr_accessor :board
   def initialize(size = 3, num_bombs = 2)
     @board = create_board(size, num_bombs)
     render
@@ -10,7 +10,7 @@ class Board
     board = Array.new(size) {Array.new(size)}
     board.each_with_index do |row, i|
       row.each_with_index do |box, j|
-        board[i][j] = Tile.new([i,j],self)
+        board[i][j] = Tile.new(self,[i,j])
       end
     end
 
@@ -31,6 +31,7 @@ class Board
   end
 
   def getTile(x,y)
+
     @board[x][y]
   end
   def flag_tile(pos)
@@ -41,7 +42,9 @@ class Board
 
   def flip_tile(pos)
     tile = @board[pos[0]][pos[1]]
+
     tile.explore
+
     render
     tile.is_bomb ? true : false
   end

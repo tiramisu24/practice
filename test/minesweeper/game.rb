@@ -36,8 +36,8 @@ class Game
 end
 
 
-puts "enter board size"
-size = gets.chomp.to_i
-puts "enter number of bombs"
-num_bombs = gets.chomp.to_i
-g = Game.new(size, num_bombs)
+# puts "enter board size"
+# size = gets.chomp.to_i
+# puts "enter number of bombs"
+# num_bombs = gets.chomp.to_i
+g = Game.new()
