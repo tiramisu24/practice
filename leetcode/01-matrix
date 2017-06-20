@@ -1,0 +1,55 @@
+public class Solution {
+    public int[][] updateMatrix(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[][] res = new int[m][n];
+
+        Queue<int[]> queue = new LinkedList<>();
+
+
+        for(int i =0; i<m;i++){
+          for(int j=0; j<n; j++){
+            if(matrix[i][j] == 0) {
+              res[i][j] = 0;
+            }else{
+              res[i][j] = Integer.MAX_VALUE;
+              queue.offer(new int[] {i, j});
+
+              }
+          }
+        }
+
+
+
+        while(!queue.isEmpty()){
+          int[] arr = queue.poll();
+          int i = arr[0];
+          int j = arr[1];
+          int low = lowestNeigbor(i,j,matrix,res);
+          if(low == Integer.MAX_VALUE){
+            queue.add(new int[] {i, j});
+          }else{
+            res[i][j] = low;
+          }
+        }
+        return res;
+
+    }
+
+    public int lowestNeigbo(i,j,matrix, res){
+      let res = [Integer.MAX_VALUE];
+      int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+      for(int i = 0; i < dirs.length; i++){
+        int x = i+dirs[0];
+        int y = j+dirs[1];
+        if(isValid(x, y, matrix)) res.push(res[x,y]);
+      }
+      return Math.min(res);
+    }
+
+    public boolean isValid(i,j,matrix){
+      if(i<0 || i>=matrix.length || j<0 || j>=matrix[0].length) return false;
+      return true;
+    }
+
+}
