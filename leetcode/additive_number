@@ -3,23 +3,24 @@ public class Solution {
       int n = num.length();
 
       for(int i = 1; i < n/2; i++){
-        if(num.charAt(i-1) == "0" ) continue;
+        if(num.charAt(i-1) == '0' ) continue;
 
         int num1 = Integer.parseInt(num.substring(0,i));
         for(int j =1; (i+j)<n; j++){
-          if(num.charAt(i) == "0" ) break;
-          if(num.charAt(i+j) == "0") continue;
-          int num2 = Integer.parseInt(num.substring(i,j));
-          if(isValid(num1, num2, i+j, num)) return true;
+          if(num.charAt(i) == '0') break;
+          if(num.charAt(i+j) == '0') continue;
+          int num2 = Integer.parseInt(num.substring(i,i+j));
+          if(isAdditive(num1, num2, i+j, num)) return true;
         }
       }
+      return false;
     }
 
-    public boolean isAdditive(int num1, int num2, int start, string num) {
+    public boolean isAdditive(int num1, int num2, int start, String num) {
         String sum = Integer.toString(num1 + num2);
-        if(start = num.length()) return true;
-        if(sum == num.substring(start, sum.length()-1)){
-          return true;
+        if(start == num.length()) return true;
+        if(sum == num.substring(start, start + sum.length()-1)){
+          return isAdditiveNumber(num.substring(start + sum.length()));
         }else{
           return false;
         }

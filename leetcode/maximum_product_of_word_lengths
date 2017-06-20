@@ -1,0 +1,14 @@
+public class Solution {
+    public int maxProduct(String[] words) {
+      String[] arr = sortStringArr(words);
+    }
+    public Sting[] sortStringArr(String[] words){
+      String[] res = new String[words.length()];
+      for(int i = 0; i < words.length(); i++){
+        char[] letters = words[i].toCharArray();
+        String sorted = new String(Arrays.sort(letters));
+        res[i] = sorted;
+      }
+      return res
+    }
+}
