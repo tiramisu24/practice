@@ -1,19 +1,19 @@
 public class Solution {
     public String validIPAddress(String IP) {
-        String[] ip4 = String.split(".",IP);
-        String[] ip6 = String.split(":",IP);
+        String[] ip4 = IP.split("\\.");
+        String[] ip6 = IP.split(":");
 
         String res ="Neither";
         if(ip4.length == 4){
-          res = "IP4";
-          for(int i = 0; i<ip4.length; i++){
-            if(ip4[i].charAt(0) == '0') return "Neither";
+          res = "IPv4";
+          for(int i = 0; i< ip4.length; i++){
+            if(ip4[i].length() ==0 || ip4[i].charAt(0) == '0') return "Neither";
           }
         }else if(ip6.length == 8 ){
-          for(int i = 0; i<ip4.length; i++){
-            if(ip4[i].length != 4) return "Neither";
+          for(int i = 0; i<ip6.length; i++){
+            if(ip6[i].length() != 4) return "Neither";
           }
-          res = "IP6";
+          res = "IPv6";
         }
 
         return res;

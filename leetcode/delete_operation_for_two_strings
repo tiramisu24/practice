@@ -1,0 +1,19 @@
+var minDistance = function(word1, word2) {
+    let res= {};
+    let count = 0;
+    for(let i = 0; i< word1.length; i++){
+        if(res[word1[i]] === undefined){
+            res[word1[i]] = 0;
+        }else{
+            res[word1[i]] +=1;
+        }
+    }
+
+    for(let i = 0; i< word2.length; i++){
+        if(res[word2[i]] !== undefined && res[word2[i]] >0){
+            res[word2[i]] -= 1;
+            count+=1;
+        }
+    }
+    return word1.length + word2.length -count;
+};
