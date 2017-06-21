@@ -13,7 +13,7 @@ public class Solution {
               res[i][j] = 0;
             }else{
               res[i][j] = Integer.MAX_VALUE;
-              queue.offer(new int[] {i, j});
+              queue.add(new int[] {i, j});
 
               }
           }
@@ -29,25 +29,28 @@ public class Solution {
           if(low == Integer.MAX_VALUE){
             queue.add(new int[] {i, j});
           }else{
-            res[i][j] = low;
+            res[i][j] = low+1;
           }
         }
         return res;
 
     }
 
-    public int lowestNeigbo(i,j,matrix, res){
-      let res = [Integer.MAX_VALUE];
+    public int lowestNeigbor(int i,int j,int[][] matrix, int[][] res){
+      ArrayList<Integer> arrList = ArrayList<Integer>(4);
+      arrList.add(Integer.MAX_VALUE);
+
       int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
       for(int i = 0; i < dirs.length; i++){
         int x = i+dirs[0];
         int y = j+dirs[1];
-        if(isValid(x, y, matrix)) res.push(res[x,y]);
+        if(isValid(x, y, matrix)) arrList.push(res[x][y]);
+        System.out.println(arrList);
       }
-      return Math.min(res);
+      return Collections.max(arrList);
     }
 
-    public boolean isValid(i,j,matrix){
+    public boolean isValid(int i,int j,int[][] matrix){
       if(i<0 || i>=matrix.length || j<0 || j>=matrix[0].length) return false;
       return true;
     }
