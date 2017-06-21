@@ -5,7 +5,23 @@ public class Solution {
 
         while(s<e){
           int midx = (e-s)/2;
-          
+
+          if(midx == target) return midx;
+          if(nums[midx] >= nums[s]){
+            if(nums[midx] > target && target >nums[s]){
+              e = midx-1;
+            }else{
+              s = midx+1;
+            }
+          }else{
+            if(target > nums[midx] && target <= nums[e]){
+              e = midx+1;
+            }Else{
+              s = midx -1;
+            }
+
+
+          }
         }
     }
 }
