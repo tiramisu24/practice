@@ -1,0 +1,33 @@
+public class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[] res = new int[m*n];
+        int idx = 0
+
+        int xdir = -1;
+        int ydir = 1;
+
+        int i = 0;
+        int j = 0;
+        while(i<m && j<n){
+            res[idx] = matrix[i][j];
+            if(isValid(xdir + i,m)) {
+              i = xdir+i;
+            }else{
+              xdir *= -1;
+            }
+            if(isValid(ydir +j, n)){
+              j = ydir +j;
+            }else{
+              ydir *= -1;
+            }
+        }
+    }
+    public boolean isValid(int idx, int bound){
+      if(idx<0 || idx>=bound) return false;
+      return true;
+    }
+
+}
