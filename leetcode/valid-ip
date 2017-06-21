@@ -1,0 +1,21 @@
+public class Solution {
+    public String validIPAddress(String IP) {
+        String[] ip4 = String.split(".",IP);
+        String[] ip6 = String.split(":",IP);
+
+        String res ="Neither";
+        if(ip4.length == 4){
+          res = "IP4";
+          for(int i = 0; i<ip4.length; i++){
+            if(ip4[i].charAt(0) == '0') return "Neither";
+          }
+        }else if(ip6.length == 8 ){
+          for(int i = 0; i<ip4.length; i++){
+            if(ip4[i].length != 4) return "Neither";
+          }
+          res = "IP6";
+        }
+
+        return res;
+    }
+}
