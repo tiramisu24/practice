@@ -51,7 +51,7 @@ public class Solution {
     }
 
     public boolean isValid(int i,int j,int[][] matrix){
-      if(i<0 || i>=matrix.length || j<0 || j>=matrix[0].length) return false;
+    if(i<0 || i>=matrix.length || j<0 || j>=matrix[0].length) return false;
       return true;
     }
 
