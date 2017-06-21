@@ -1,11 +1,11 @@
 public class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode curNode = new ListNode();
+        ListNode curNode = new ListNode(0);
         curNode.next = head;
         ListNode startEnd = curNode;
 
 
-        while(curNode.next != null){
+        while(curNode != null){
           ListNode nextNode = curNode.next;
           if(nextNode.val < x){
             curNode.next = nextNode.next;
@@ -14,7 +14,9 @@ public class Solution {
             startEnd = startEnd.next;
 
           }
+
           curNode = curNode.next;
+
         }
         return head;
     }
