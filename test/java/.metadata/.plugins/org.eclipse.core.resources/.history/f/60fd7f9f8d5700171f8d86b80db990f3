@@ -1,0 +1,25 @@
+package demo3;
+
+class Runner extends Thread{
+
+	@Override
+	public void run() {
+		System.out.println("lkj");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+}
+
+public class test3 {
+	public static void main(String[] args){
+		Runner r1 = new Runner();
+		r1.start();		
+	}
+
+}
