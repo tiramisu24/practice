@@ -1,2 +1,1 @@
 INDEX VERSION 1.126+/Users/dianezheng/Desktop/Diane/practice/test/java/.metadata/.plugins/org.eclipse.jdt.core
-3774436368.index

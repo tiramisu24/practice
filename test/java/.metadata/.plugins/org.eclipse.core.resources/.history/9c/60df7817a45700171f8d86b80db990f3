@@ -9,9 +9,6 @@ class Runner extends Thread{
 		while(running){
 			System.out.println("lkj");
 			try {
-				
-				
-				
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
