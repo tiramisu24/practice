@@ -1,0 +1,87 @@
+package game;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Game {
+	private int[] curPos = new int[2];
+	private Room[][] rooms;
+	private HashMap<Integer, String> dirs;
+	int [][] coords = {{-1,0}, {0,-1}, {1,0}, {0,1}};
+	public Game(){
+		rooms = new Room[9][9];
+		for(int i = 0; i<rooms.length; i++){
+			for(int j = 0; j<rooms[0].length; j++){
+				rooms[i][j] = new Room();
+			}
+		}
+		rooms[0][0] = new Room(true);
+		curPos[0] = 0;
+		curPos[1] = 0;
+		
+		dirs = new HashMap<>();
+		dirs.put(0,"UP");
+		dirs.put(1,"LEFT");
+		dirs.put(2,"DOWN");
+		dirs.put(3,"RIGHT");
+		
+	}
+	public void Move(){
+
+		//print room thing
+		rooms[curPos[0]][curPos[1]].printGreeting();
+		//print directions
+
+		
+		for(int k=0; k<coords.length; k++ ){
+			int i = curPos[0] + coords[k][0];
+			int j = curPos[1] + coords[k][1];
+			if(isValid(i,j)){
+				System.out.print(dirs.get(k));
+			}
+		}
+		
+		int move = getMove();
+		System.out.println("the move is"+ move);
+		curPos[0] += coords[move][0];
+		curPos[1] += coords[move][1];
+		//get MOve
+	}
+	public boolean isValid(int i, int j){
+		if(i<0 || i>rooms.length || j<0 || j>rooms[0].length) return false;
+		return true;
+	}
+	
+	public int getMove(){
+		System.out.println("Make a move");
+		Scanner scan = new Scanner(System.in);
+		String sentence = scan.nextLine();
+		String[] sentenceArr = sentence.split(" ");
+		String direction = sentenceArr[sentenceArr.length -1];
+		direction = direction.replace("\n", "");
+		System.out.print("direction is"+ direction.toUpperCase());
+		System.out.print("Should not have spaces");
+		System.out.println("direction is equal "+ (direction.toUpperCase()=="DOWN"));
+
+		if(direction.toUpperCase() == new String("UP")) 
+			return 0;
+		if(direction.toUpperCase() == new String("LEFT"))
+			return 1;
+		if(direction.toUpperCase() == new String("DOWN")){
+
+			return 2;
+		}
+		if(direction.toUpperCase() ==new String("RIGHT"))
+			return 3;
+		
+		
+		return getMove();
+		
+	}
+	public static void main(String[] args){
+		Game g = new Game();
+		while(true){
+			g.Move();
+		}
+	}
+}

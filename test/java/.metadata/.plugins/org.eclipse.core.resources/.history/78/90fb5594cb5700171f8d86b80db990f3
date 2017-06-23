@@ -1,0 +1,50 @@
+package game;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Game {
+	private int[] curPos;
+	private Room[][] rooms;
+	public Game(){
+		rooms = new Room[9][9];
+		for(int i = 0; i<rooms.length; i++){
+			for(int j = 0; j<rooms[0].length; j++){
+				rooms[i][j] = new Room();
+			}
+		}
+		rooms[0][0] = new Room(true);
+		curPos[0] = 0;
+		curPos[1] = 0;
+		
+	}
+	public void Move(){
+		int i = curPos[0];
+		int j = curPos[1];
+		//print room thing
+		rooms[i][j].printGreeting();
+		//print directions
+		HashMap<Integer, String> dirs = new HashMap<>();
+		int [][] coords = {{-1,0}, {0,-1}, {1,0}, {0,1}};
+		dirs.put(0,"UP");
+		dirs.put(1,"LEFT");
+		dirs.put(2,"DOWN");
+		dirs.put(3,"RIGHT");
+		
+		
+		
+		
+		//get MOve
+	}
+	
+	public String getMove(){
+		Scanner scan = new Scanner(System.in);
+		return scan.nextLine();
+	}
+	public static void main(String[] args){
+		Game g = new Game();
+//		while(true){
+//			
+//		}
+	}
+}
