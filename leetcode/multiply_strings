@@ -1,19 +1,8 @@
-/**
- * @param {string} num1
- * @param {string} num2
- * @return {string}
- */
 var multiply = function(num1, num2) {
     arr1 = num1.split("");
     arr2 = num2.split("");
     count = 0;
-    for(let i = arr1.length -1; i>=0; i--){
 
-        for(let j = arr2.length -1; j>=0; j--){
-
-        }
-        count++;
-    }
 };
 
 var multHelper = function(arr1,arr2){
@@ -27,6 +16,7 @@ var multHelper = function(arr1,arr2){
             rem = Math.floor(result / 10);
             temp = (rem%10).toString() + temp;
         }
+        if(rem != 0) temp = rem.toString() + temp;
         res.push(temp);
         count++;
     }
