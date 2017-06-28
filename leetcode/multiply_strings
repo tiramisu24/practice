@@ -1,32 +1,43 @@
 var multiply = function(num1, num2) {
-    arr1 = num1.split("");
-    arr2 = num2.split("");
-    count = 0;
-
+    let arr1 = num1.split("");
+    let arr2 = num2.split("");
+    return
 };
 
 var multHelper = function(arr1,arr2){
-    count = 0;
-    let res = []
+    let count = 0;
+    let prevSum =[];
     for(let i = arr1.length -1; i>=0; i--){
         let temp = zeros(count);
         let rem = 0;
         for(let j = arr2.length -1; j>=0; j--){
-            let result = arr1[i].parseInt() + arr2[j].parseInst();
+            let result = arr1[i].parseInt() + arr2[j].parseInst() + rem;
             rem = Math.floor(result / 10);
-            temp = (rem%10).toString() + temp;
+            temp.unshift(result%10);
         }
-        if(rem != 0) temp = rem.toString() + temp;
-        res.push(temp);
+        if(rem != 0) temp = temp.unshift(rem);
+        prevSum = addArr(prevSum, temp);
         count++;
+    }
+    return prevSum.join("");
+}
+
+var addArr = function(arr1,arr2){
+    let res = [];
+    let rem = 0;
+    for(let i = 0; i<Math.max(arr1.length,arr2.length); i++){
+        let num1 = (i<arr1.length) ? arr1[i] : 0;
+        let num2 = (i<arr2.length) ? arr2[i] : 0;
+        res[i] = (num1 + num2 + rem)%10;
+        rem = Math.floor((num1 + num2 + rem)/10);
     }
     return res;
 }
 
 var zeros = function(num){
-    let temp = "";
+    let temp = [];
     for(let i =0; i<num; i++){
-        temp +="0";
+        temp.push(0);
     }
     return temp;
 }
