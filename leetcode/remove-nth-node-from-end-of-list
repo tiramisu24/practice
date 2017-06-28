@@ -1,3 +1,15 @@
 var removeNthFromEnd = function(head, n) {
-
+    let newHead = new ListNode();
+    newHead.next = head;
+    let tail = head;
+    let node = newHead;
+    for(let i =0; i<n; i++){
+        tail = tail.next;
+    }
+    while(tail != null){
+        tail = tail.next
+        node = node.next;
+    }
+    node.next = node.next.next;
+    return newHead.next;
 };
