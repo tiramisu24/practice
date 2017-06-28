@@ -1,0 +1,16 @@
+var combinationSum = function(candidates, target) {
+    let res = [];
+    combinationHelper(candidates,target, res,[])
+    return res;
+};
+
+var combinationHelper = function(candidates,target, res, curArr){
+    for(let i = 0; i<candidates.length; i++){
+        let num = candidates[i];
+        if(num == target){
+            res.push(curArr.push(num))
+        }else if(target > num){
+            combinationHelper(candidates,target-num, res, curArr.push(num))
+        }
+    }
+}
