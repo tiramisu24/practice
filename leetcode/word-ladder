@@ -1,0 +1,35 @@
+var ladderLength = function(beginWord, endWord, wordList) {
+    let dict = new Set();
+    for(let i = 0; i<wordList.length;i++){
+        dict.add(wordList[i]);
+    }
+    let visited = new Set();
+    return ladderLengthHelper(beginWord, endWord, dict, visited, distance = 1);
+};
+
+var ladderLengthHelper = function(beginWord, endWord, dict, visited, distance = 1) {
+    visited.add(beginWord);
+
+    let queue = [];
+    if(!visited.has(endWord)){
+        for(let i = 0; i<beginWord.length;i++){
+            let temp = beginWord;
+            for (j = 0; j <= 25; j++){
+                chr = String.fromCharCode(97 + j);
+                temp = temp.replaceAt(i,chr);
+                if(dict.has(temp) && !visited.has(temp)) queue.push(temp);
+            }
+        }
+    }
+    let distances = [Infinity];
+    if(queue.length === 0) visited.delete(beginWord);
+    while(queue.length !==0){
+        distances.push(ladderLengthHelper(beginWord, endWord, dict, visited, distance, queue.shift))
+    }
+    console.log("distances", distances);
+    return Math.min(distances) +1;
+}
+
+String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
+}
