@@ -13,13 +13,16 @@ const CreateList = () =>{
   const names = Object.keys(data);
   const module = $("#module");
   for(let i = 0; i < names.length; i++){
-    module.append($("<button/>", {
-                    text:names[i],
-                    onClick:clickButton
-                  }))
+    let button = $("<button/>", {
+                  text:names[i],
+                  className:'candidate-names'
+                });
+    button.on('click', clickButton);
+    module.append(button)
   }
 }
-const clickButton = (data) =>{
-  // data.preventDefault();
-  console.log(data);
+const clickButton = (e) =>{
+  e.preventDefault();
+
+  console.log(e.target.innerHTML);
 }
